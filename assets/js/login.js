@@ -33,8 +33,8 @@ $(function() {
       type: 'post',
       url: 'http://ajax.frontend.itheima.net/api/reguser',
       data: {
-        username: $(".reg-box [name = username]").val(),
-        password: $(".reg-box [name = password]").val()
+        username: $("#form_reg [name = username]").val(),
+        password: $("#form_reg [name = password]").val()
       },
       success: res => {
         if (res.status !== 0) return console.log(res.message)
@@ -51,18 +51,17 @@ $(function() {
     $.ajax({
       type : 'post' ,
       url: 'http://ajax.frontend.itheima.net/api/login' ,
-      data: { 
-        username: $(".login-box [name = username]").val(),
-        password: $(".login-box [name = password]").val()
-      } , 
+      data: $(this).serialize(), 
       success : res => {
         if (res.status !== 0) return alert('失败');
+        console.log(res);
+        console.log(res.token);
 
 
         // 将登录成功得到的 token 字符串，保存到 localStorage 中
         localStorage.setItem('token', res.token)
         // 跳转到后台主页
-        location.href = '/index.html'
+        location.href = '/bigEvent/index.html'
       }
     })
   })
