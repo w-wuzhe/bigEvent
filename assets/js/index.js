@@ -7,9 +7,9 @@ function getUserInfo() {
         //     Authorization: localStorage.getItem("token") || ''
         // },
         success: res => {
-            if (res.status !== 0) return
+            if (res.status !== 0) return layui.layer.msg('获取用户信息失败！')
 
-            console.log(res);
+            // console.log(res);
             // $("#welcome").html("欢迎" + res.data.username)
             renderAvatar(res.data)
         }

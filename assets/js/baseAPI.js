@@ -6,7 +6,7 @@ $.ajaxPrefilter(function(options) {
   options.url = 'http://ajax.frontend.itheima.net' + options.url
 
   // 给含有my的url地址同一添加Authorization 属性
-  if (options.url.indexOf(/my/) !== -1){
+  if (options.url.indexOf("/my/") !== -1){
     options.headers = {
       Authorization: localStorage.getItem("token") || ''
     }
@@ -14,8 +14,8 @@ $.ajaxPrefilter(function(options) {
 
   // 设置访问权限
   options.complete = function(res){
-    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败!') {
-      localStorage.removeItem("token")
+    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
+      localStorage.removeItem('token')
       location.href = '/bigEvent/login.html'
     }
   }
