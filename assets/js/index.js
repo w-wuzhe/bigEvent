@@ -41,7 +41,7 @@ $("#btn_index").on("click" , function(){
         localStorage.removeItem("token") 
         // 跳转到登录页面
         location.href = "/bigEvent/login.html"
-
+        // 退出弹出层
         layer.close(index);
     });
 })

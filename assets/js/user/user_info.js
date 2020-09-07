@@ -1,4 +1,4 @@
-$(function(){
+    $(function(){
     var form = layui.form
     form.verify({
         nickname : function(value){
@@ -16,7 +16,6 @@ $(function(){
                 if (res.status !== 0) {
                     return layer.msg("获取用户信息失败！")
                 }
-                console.log(res);
                 // $(".layui-card [name = username]").attr("placeholder", res.data.username)
                 // layui 添加的 赋值form表单的方法
                 form.val("formTest", res.data)
